@@ -1,1 +1,16 @@
-<h1>Home Page</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-3 roomList">
+			<h2>Rooms</h2>
+			<!-- Display rooms -->
+			<ul>
+				<div id="rooms" ng-repeat="room in home.roomList">
+					<li>{{ room }}</li>
+				</div>
+			</ul>
+		</div>
+
+		<div class="col-md-9">
+		</div>
+	</div>
+</div>
