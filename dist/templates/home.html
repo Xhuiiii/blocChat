@@ -2,10 +2,28 @@
 	<div class="row">
 		<div class="col-md-3 roomList">
 			<h2>Rooms</h2>
+
+			<div ng-controller="ModalCtrl">
+				<script type="text/ng-template" id="myModalContent.html">
+					<div class="modal-header">
+						<h3 class="modal-title">Create new room</h3>
+					</div>
+					<div class="modal-body">
+						<h4 class="modal-subtitle">Enter a room name</h4>
+						<input type="text" ng-model="roomName">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" type="button" ng-click="cancel()">Cancel</button>
+						<button class="btn btn-primary" type="button" ng-click="createRoom()">Create room</button>
+					</div>
+				</script>
+				<button type="button" class="btn btn-default" ng-click="open()">New Room</button>
+			</div>
+
 			<!-- Display rooms -->
 			<ul>
-				<div id="rooms" ng-repeat="room in home.roomList">
-					<li>{{ room }}</li>
+				<div id="rooms" ng-repeat="room in roomList">
+					<li>{{ room.name }}</li>
 				</div>
 			</ul>
 		</div>
