@@ -1,7 +1,7 @@
 (function(){
 	function ModalCtrl($scope, $uibModal, $log){
 		$scope.animationsEnabled = true;
-		$scope.roomName = "roomName";
+		$scope.roomName;
 
 		$scope.open = function(){
 			var modalInstance = $uibModal.open({
