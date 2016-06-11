@@ -12,8 +12,13 @@
 			},
 			all: function(){
 				return rooms;
+			},
+			getMessages: function(roomID){
+				var messagesArray = $firebaseArray(firebaseRef.child('messages').orderByChild('roomId').equalTo(roomID));
+				return messagesArray;
 			}
 		};
+
 	};
 
 	angular
