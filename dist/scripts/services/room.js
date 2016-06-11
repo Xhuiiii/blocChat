@@ -5,7 +5,7 @@
 
 		return{
 			add: function(roomName){
-				rooms.$add({name: roomName})
+				rooms.$add({name: roomName});
 			},
 			remove: function(roomName){
 				rooms.$remove(roomName);
