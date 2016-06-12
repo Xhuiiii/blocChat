@@ -1,14 +1,14 @@
 (function(){
-	function UserModalCtrl($scope, $uibModalInstance, $cookieStore){
+	function UserModalCtrl($scope, $uibModalInstance, $cookies){
 		$scope.addUsername = function(username){
 			console.log("username input: " + username);
-			$cookieStore.put("currentUser", username);
-			console.log("saved username: " + $cookieStore.get("currentUser"));
+			$cookies.put("currentUser", username);
+			console.log("saved username: " + $cookies.get("currentUser"));
 			$uibModalInstance.close();
 		};
 	}; 
 
 	angular 
 		.module('blocChat')
-		.controller('UserModalCtrl', ['$scope', '$uibModalInstance', '$cookieStore', UserModalCtrl]);
+		.controller('UserModalCtrl', ['$scope', '$uibModalInstance', '$cookies', UserModalCtrl]);
 })(); 

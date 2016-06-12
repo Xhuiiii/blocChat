@@ -10,12 +10,12 @@
 			<input type="text" ng-model="username">
 			</div>
 			<div class="modal-footer">
-				<button class="btn btn-primary" ng-click="addUsername(Username)">Set username</button>\
+				<button class="btn btn-primary" ng-click="addUsername(username)">Set username</button>\
 		</div>`;
 
 		if(!currentUser || currentUser === ''){
 			console.log(currentUser);
-			var uibModalInstance = $uibModal.open({
+			var userModalInstance = $uibModal.open({
 				controller: 'UserModalCtrl',
 				template: modalTemplate,
 				backdrop: 'static',
