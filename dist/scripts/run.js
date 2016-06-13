@@ -5,12 +5,12 @@
 		var modalTemplate = `
 		<div class="modal-header">
 			<h3 class="modal-title">Username</h3>
-			</div>
-			<div class="modal-body">
+		</div>
+		<div class="modal-body">
 			<input type="text" ng-model="username">
-			</div>
-			<div class="modal-footer">
-				<button class="btn btn-primary" ng-click="addUsername(username)">Set username</button>\
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" ng-click="addUsername(username)">Set username</button>
 		</div>`;
 
 		if(!currentUser || currentUser === ''){

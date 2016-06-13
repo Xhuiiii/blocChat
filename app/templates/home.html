@@ -31,9 +31,19 @@
 		<div class="col-md-9 chatRoom">
 			<h2>{{ activeRoom.name }}</h2>
 			<div class="row">
-				<table>
+				<table class="table table-striped">
 					<tr ng-repeat="message in messages">
-						{{ message }}
+						<td>
+							<table>
+								<tr>
+									<td>{{ message.username }}</td>
+								</tr>
+								<tr>
+									<td class="row col-md-9">{{ message.content }}</td>
+									<td class="col-md-3">{{ message.sentAt }}</td>
+								<tr>
+							</table>
+						</td>
 					</tr> 
 				</table>
 			</div>
