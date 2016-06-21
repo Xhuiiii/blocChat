@@ -1,14 +1,36 @@
 (function(){
-	function HomeCtrl($scope, Room, Messages){
+	function HomeCtrl($scope, Room, Messages, $cookies){
 		$scope.roomList = Room.all();
+		$scope.username = $cookies.get('currentUser');
+		$scope.chatHidden = true;
+		var self = this;
 
 		$scope.select = function(roomId){
 			if(roomId){
 				$scope.activeRoom = $scope.roomList.$getRecord(roomId);
 			}else{
-				$scope.activeRoom = $scope.roomList[0];
+				if(roomList.length >= 1)
+					$scope.activeRoom = $scope.roomList[0];
 			}
-			$scope.messages = Room.getMessages($scope.activeRoom.$id);
+			if($scope.activeRoom){
+				$scope.messages = Room.getMessages($scope.activeRoom.$id);
+				$scope.chatHidden = false;
+			}
+		};
+
+		$scope.getActive = function(roomId){
+			if($scope.activeRoom){
+				if($scope.activeRoom.$id == roomId){
+					return "active";
+				}
+				else{
+					return "notActive";
+				}
+			}
+		};
+
+		$scope.chatRoom = function(){
+			this.disabled = true;
 		};
 
 		$scope.send = function(){
@@ -19,5 +41,5 @@
 
 	angular
 		.module('blocChat')
-		.controller('HomeCtrl', ['$scope', 'Room', 'Messages', HomeCtrl]);
+		.controller('HomeCtrl', ['$scope', 'Room', 'Messages', '$cookies', HomeCtrl]);
 })();

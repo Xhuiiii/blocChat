@@ -17,6 +17,6 @@
 	};
 
 	angular
-		.module('blocChat', ['ui.router', 'firebase', 'ngAnimate', 'ui.bootstrap', 'ngCookies'])
+		.module('blocChat', ['ui.router', 'firebase', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'luegg.directives'])
 		.config(config)
 })();

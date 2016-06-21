@@ -1,8 +1,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3 roomList">
-			<h2>Rooms</h2>
-
+			<h1>{{ username }}</h1>
 			<div ng-controller="ModalCtrl">
 				<script type="text/ng-template" id="myModalContent.html">
 					<div class="modal-header">
@@ -17,38 +16,38 @@
 						<button class="btn btn-primary" type="button" ng-click="createRoom()">Create room</button>
 					</div>
 				</script>
-				<button type="button" class="btn btn-default" ng-click="open()">New Room</button>
+				<h3>Rooms<button type="button" class="btn btn-default pull-right" ng-click="open()">New Room</button></h3>
 			</div>
 
 			<!-- Display rooms -->
-			<ul>
+			<ul class="displayRoomList">
 				<div id="rooms" ng-repeat="room in roomList">
-					<li class="rooms" ng-click="select(room.$id)">{{ room.name }}</li>
+					<li ng-class="getActive(room.$id)" ng-click="select(room.$id)">{{ room.name }}</li>
 				</div>
 			</ul>
 		</div>
 
-		<div class="col-md-9 chatRoom">
-			<h2>{{ activeRoom.name }}</h2>
-			<div class="row">
-				<table class="table table-striped">
+		<div class="col-md-9 chatRoom" ng-hide="chatHidden">
+			<h2 class="activeRoom-name">{{ activeRoom.name }}</h2>
+			<div class="row displayed-messages" id="displayedMessages" scroll-glue>	
+				<table class="table">
 					<tr ng-repeat="message in messages">
 						<td>
 							<table>
 								<tr>
-									<td>{{ message.username }}</td>
+									<td class="message-username">{{ message.username }}</td>
 								</tr>
 								<tr>
-									<td class="row col-md-9">{{ message.content }}</td>
-									<td class="col-md-3">{{ message.sentAt }}</td>
+									<td class="message-content">{{ message.content }}</td>
+									<td class="message-date">{{ message.sentAt | date: "dd/MM/yyyy 'at' h:mma" }}</td>
 								<tr>
 							</table>
 						</td>
-					</tr> 
-				</table>
+					</tr>
+				</table>			
 			</div>
-			<div class="row">
-				<input type="text" ng-model="messageContent">
+			<div class="row new-message">
+				<textarea class="new-message-input" type="text" ng-model="messageContent" required="true"></textarea>
 				<button type="button" class="btn btn-primary pull-right" ng-click="send()">Send</button>
 			</div>
 		</div>
