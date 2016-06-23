@@ -1,6 +1,6 @@
 (function(){
-	function Messages($firebaseArray, $cookies){
-		var firebaseRef = new Firebase("https://xhui-blocchat.firebaseio.com/");
+	function Messages($firebaseArray, $cookies, FirebaseUrl){
+		var firebaseRef = new Firebase(FirebaseUrl);
 		var messages = $firebaseArray(firebaseRef.child('messages'));
 
 		return {
@@ -17,5 +17,5 @@
 
 	angular
 		.module('blocChat')
-		.factory('Messages', ['$firebaseArray', '$cookies', Messages]);
+		.factory('Messages', ['$firebaseArray', '$cookies', 'FirebaseUrl', Messages]);
 })();

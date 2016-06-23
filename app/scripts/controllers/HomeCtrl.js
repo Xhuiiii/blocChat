@@ -3,7 +3,6 @@
 		$scope.roomList = Room.all();
 		$scope.username = $cookies.get('currentUser');
 		$scope.chatHidden = true;
-		var self = this;
 
 		$scope.select = function(roomId){
 			if(roomId){

@@ -19,4 +19,5 @@
 	angular
 		.module('blocChat', ['ui.router', 'firebase', 'ngAnimate', 'ui.bootstrap', 'ngCookies', 'luegg.directives'])
 		.config(config)
+		.constant('FirebaseUrl', 'https://xhui-blocchat.firebaseio.com/');
 })();

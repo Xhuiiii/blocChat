@@ -89,6 +89,12 @@ html{
 	margin-right: 2rem;
 }
 
+.errorMessage{
+	padding-left: 0.8rem;
+	color: red;
+	font-size: 0.6rem;
+}
+
 /* Medium and small screens (640px) */
 @media(min-width: 640px){
     html{font-size: 112%; }

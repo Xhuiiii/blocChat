@@ -1,0 +1,39 @@
+<!-- Hide if authData == true/exists show login -->
+<!-- If authData == null/doesn't exist show register form -->
+<div ng-hide="signingIn">
+	<div class="modal-header">
+		<h3 class="modal-title">Sign Up<button type="button" class="btn btn-default pull-right" ng-click="signInClicked()">Sign In</button></h3>
+	</div>
+	<div class="modal-body">
+		<h3 class="modal-subtitle">Username</h3>
+		<input type="text" ng-model="username" placeholder="username">
+		<h3 class="modal-subtitle">Email</h3>
+		<input type="text" ng-model="email" placeholder="Email">
+		<h3 class="modal-subtitle">Password</h3>
+		<input type="text" ng-model="password" placeholder="Password">
+	</div>
+	<div ng-show="authError">
+		<span class="errorMessage">{{ authError.message }}</span>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="register()">Create</button>
+	</div>
+</div>
+
+<div ng-show="signingIn">
+	<div class="modal-header">
+		<h3 class="modal-title">Login<button type="button" class="btn btn-default pull-right" ng-click="signInClicked()">Sign Up</button></h3>
+	</div>
+	<div class="modal-body">
+		<h3 class="modal-subtitle">Email/Username</h3>
+		<input type="text" ng-model="email" placeholder="Email or Username">
+		<h3 class="modal-subtitle">Password</h3>
+		<input type="text" ng-model="password" placeholder="Password">
+	</div>
+	<div ng-show="authError">
+		<span class="errorMessage">{{ authError.message }}</span>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="login()">Login</button>
+	</div>
+</div>

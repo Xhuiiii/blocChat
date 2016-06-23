@@ -1,6 +1,6 @@
 (function(){
-	function Room($firebaseArray){
-		var firebaseRef = new Firebase("https://xhui-blocchat.firebaseio.com/");
+	function Room($firebaseArray, FirebaseUrl){
+		var firebaseRef = new Firebase(FirebaseUrl);
 		var rooms = $firebaseArray(firebaseRef.child('rooms'));
 
 		return{
@@ -23,5 +23,5 @@
 
 	angular
 		.module('blocChat')
-		.factory('Room', ['$firebaseArray', Room]);
+		.factory('Room', ['$firebaseArray', 'FirebaseUrl', Room]);
 })();
